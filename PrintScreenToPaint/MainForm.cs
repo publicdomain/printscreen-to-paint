@@ -106,7 +106,8 @@ namespace PrintScreenToPaint
         /// <param name="e">Event arguments.</param>
         private void OnExitToolStripMenuItemClick(object sender, EventArgs e)
         {
-            // TODO Add code
+            // Close application
+            this.Close();
         }
 
         /// <summary>
