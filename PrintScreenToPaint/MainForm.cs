@@ -76,7 +76,8 @@ namespace PrintScreenToPaint
         /// <param name="e">Event arguments.</param>
         private void OnOriginalThreadDonationCodercomToolStripMenuItemClick(object sender, EventArgs e)
         {
-            // TODO Add code
+            // Open original thread @ DonationCoder
+            Process.Start("https://www.donationcoder.com/forum/index.php?topic=49608.0");
         }
 
         /// <summary>
@@ -95,6 +96,11 @@ namespace PrintScreenToPaint
         /// <param name="sender">Sender object.</param>
         /// <param name="e">Event arguments.</param>
         private void OnNewToolStripMenuItemClick(object sender, EventArgs e)
+        {
+            // TODO Add code
+        }
+
+        private void OnMinimizeToolStripMenuItemClick(object sender, EventArgs e)
         {
             // TODO Add code
         }
