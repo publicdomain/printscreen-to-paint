@@ -10,6 +10,7 @@ namespace PrintScreenToPaint
     using System.Collections.Generic;
     using System.Diagnostics;
     using System.Drawing;
+    using System.IO;
     using System.Runtime.InteropServices;
     using System.Windows.Forms;
 
@@ -44,7 +45,19 @@ namespace PrintScreenToPaint
         /// <param name="e">Event arguments.</param>
         private void OnBrowseButtonClick(object sender, EventArgs e)
         {
-            // TODO Add code
+            // Check for a valid directory
+            if (Directory.Exists(this.directoryTextBox.Text))
+            {
+                // Set  folder browser dialog path
+                this.folderBrowserDialog.SelectedPath = this.directoryTextBox.Text;
+            }
+
+            // Show folder browser dialog
+            if (this.folderBrowserDialog.ShowDialog() == DialogResult.OK && this.folderBrowserDialog.SelectedPath.Length > 0)
+            {
+                // Set directory
+                this.directoryTextBox.Text = this.folderBrowserDialog.SelectedPath;
+            }
         }
 
         /// <summary>
