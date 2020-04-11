@@ -377,5 +377,46 @@ namespace PrintScreenToPaint
         {
             // TODO Add code
         }
+
+        /// <summary>
+        /// Handles the main form shown event.
+        /// </summary>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
+        private void OnMainFormShown(object sender, EventArgs e)
+        {
+            // Minimize program window
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        /// <summary>
+        /// Handles the main form resize event.
+        /// </summary>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
+        private void OnMainFormResize(object sender, EventArgs e)
+        {
+            // TODO Add code
+        }
+
+        /// <summary>
+        /// Handles the show tool strip menu item click event.
+        /// </summary>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
+        private void OnShowToolStripMenuItemClick(object sender, EventArgs e)
+        {
+            // TODO Add code
+        }
+
+        /// <summary>
+        /// Handles the notify exit tool strip menu item click event.
+        /// </summary>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
+        private void OnNotifyExitToolStripMenuItemClick(object sender, EventArgs e)
+        {
+            // TODO Add code
+        }
     }
 }

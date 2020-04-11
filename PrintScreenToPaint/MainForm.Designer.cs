@@ -66,6 +66,7 @@ namespace PrintScreenToPaint
         	this.minimizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.mainStatusStrip = new System.Windows.Forms.StatusStrip();
         	this.mainToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+        	this.countToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
         	this.mainNotifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
         	this.mainTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
         	this.directoryGroupBox = new System.Windows.Forms.GroupBox();
@@ -75,7 +76,6 @@ namespace PrintScreenToPaint
         	this.hotkeyGroupBox = new System.Windows.Forms.GroupBox();
         	this.pauseResumeButton = new System.Windows.Forms.Button();
         	this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-        	this.countToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
         	this.notifyContextMenuStrip.SuspendLayout();
         	this.mainMenuStrip.SuspendLayout();
         	this.mainStatusStrip.SuspendLayout();
@@ -91,19 +91,21 @@ namespace PrintScreenToPaint
         	        	        	this.showToolStripMenuItem,
         	        	        	this.notifyExitToolStripMenuItem});
         	this.notifyContextMenuStrip.Name = "notifyContextMenuStrip";
-        	this.notifyContextMenuStrip.Size = new System.Drawing.Size(104, 48);
+        	this.notifyContextMenuStrip.Size = new System.Drawing.Size(153, 70);
         	// 
         	// showToolStripMenuItem
         	// 
         	this.showToolStripMenuItem.Name = "showToolStripMenuItem";
-        	this.showToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+        	this.showToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
         	this.showToolStripMenuItem.Text = "&Show";
+        	this.showToolStripMenuItem.Click += new System.EventHandler(this.OnShowToolStripMenuItemClick);
         	// 
         	// notifyExitToolStripMenuItem
         	// 
         	this.notifyExitToolStripMenuItem.Name = "notifyExitToolStripMenuItem";
-        	this.notifyExitToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+        	this.notifyExitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
         	this.notifyExitToolStripMenuItem.Text = "&Exit";
+        	this.notifyExitToolStripMenuItem.Click += new System.EventHandler(this.OnNotifyExitToolStripMenuItemClick);
         	// 
         	// mainMenuStrip
         	// 
@@ -198,7 +200,7 @@ namespace PrintScreenToPaint
         	this.pNGToolStripMenuItem.Checked = true;
         	this.pNGToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
         	this.pNGToolStripMenuItem.Name = "pNGToolStripMenuItem";
-        	this.pNGToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+        	this.pNGToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
         	this.pNGToolStripMenuItem.Text = "&PNG";
         	// 
         	// jPEGToolStripMenuItem
@@ -304,6 +306,13 @@ namespace PrintScreenToPaint
         	this.mainToolStripStatusLabel.Size = new System.Drawing.Size(162, 17);
         	this.mainToolStripStatusLabel.Text = "Images saved during this run:";
         	// 
+        	// countToolStripStatusLabel
+        	// 
+        	this.countToolStripStatusLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+        	this.countToolStripStatusLabel.Name = "countToolStripStatusLabel";
+        	this.countToolStripStatusLabel.Size = new System.Drawing.Size(14, 17);
+        	this.countToolStripStatusLabel.Text = "0";
+        	// 
         	// mainNotifyIcon
         	// 
         	this.mainNotifyIcon.ContextMenuStrip = this.notifyContextMenuStrip;
@@ -395,13 +404,6 @@ namespace PrintScreenToPaint
         	this.pauseResumeButton.UseVisualStyleBackColor = true;
         	this.pauseResumeButton.Click += new System.EventHandler(this.OnPauseResumeButtonClick);
         	// 
-        	// countToolStripStatusLabel
-        	// 
-        	this.countToolStripStatusLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-        	this.countToolStripStatusLabel.Name = "countToolStripStatusLabel";
-        	this.countToolStripStatusLabel.Size = new System.Drawing.Size(14, 17);
-        	this.countToolStripStatusLabel.Text = "0";
-        	// 
         	// MainForm
         	// 
         	this.AcceptButton = this.pauseResumeButton;
@@ -416,6 +418,8 @@ namespace PrintScreenToPaint
         	this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
         	this.Text = "Print-screen to Paint";
         	this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnMainFormFormClosing);
+        	this.Shown += new System.EventHandler(this.OnMainFormShown);
+        	this.Resize += new System.EventHandler(this.OnMainFormResize);
         	this.notifyContextMenuStrip.ResumeLayout(false);
         	this.mainMenuStrip.ResumeLayout(false);
         	this.mainMenuStrip.PerformLayout();
