@@ -26,6 +26,20 @@ namespace PrintScreenToPaint
         {
             // The InitializeComponent() call is required for Windows Forms designer support.
             this.InitializeComponent();
+
+            // Set the target key press event handler
+            KeyboardHook.TargetKeyPress += this.OnTargetKeyPress;
+
+            // Enable the keyboard hook
+            KeyboardHook.EnableHook();
+        }
+
+        /// <summary>
+        /// Handles the target key press event.
+        /// </summary>
+        private void OnTargetKeyPress()
+        {
+            // TODO Add code
         }
 
         /// <summary>
@@ -61,7 +75,7 @@ namespace PrintScreenToPaint
         }
 
         /// <summary>
-        /// Handles the headquarters patreoncom tool strip menu item click event.
+        /// Handles the headquarters patreon.com tool strip menu item click event.
         /// </summary>
         /// <param name="sender">Sender object.</param>
         /// <param name="e">Event arguments.</param>
@@ -113,6 +127,11 @@ namespace PrintScreenToPaint
             // TODO Add code
         }
 
+        /// <summary>
+        /// Handles the minimize tool strip menu item click event.
+        /// </summary>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
         private void OnMinimizeToolStripMenuItemClick(object sender, EventArgs e)
         {
             // TODO Add code
@@ -135,6 +154,46 @@ namespace PrintScreenToPaint
         /// <param name="sender">Sender object.</param>
         /// <param name="e">Event arguments.</param>
         private void OnMainFormFormClosing(object sender, FormClosingEventArgs e)
+        {
+            // TODO Add code
+        }
+
+        /// <summary>
+        /// Handles the image format tool strip menu item drop down item clicked event.
+        /// </summary>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
+        private void OnImageFormatToolStripMenuItemDropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            // TODO Add code
+        }
+
+        /// <summary>
+        /// Handles the run at startup tool strip menu item click event.
+        /// </summary>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
+        private void OnRunAtStartupToolStripMenuItemClick(object sender, EventArgs e)
+        {
+            // TODO Add code
+        }
+
+        /// <summary>
+        /// Handles the do notopen image tool strip menu item click event.
+        /// </summary>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
+        private void OnDoNotopenImageToolStripMenuItemClick(object sender, EventArgs e)
+        {
+            // TODO Add code
+        }
+
+        /// <summary>
+        /// Handles the hide close button tool strip menu item click event.
+        /// </summary>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
+        private void OnHideCloseButtonToolStripMenuItemClick(object sender, EventArgs e)
         {
             // TODO Add code
         }

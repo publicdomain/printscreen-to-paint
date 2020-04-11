@@ -49,6 +49,13 @@ namespace PrintScreenToPaint
         	this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.runAtStartupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.hideCloseButtonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+        	this.doNotopenImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+        	this.imageFormatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+        	this.pNGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+        	this.jPEGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+        	this.bMPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+        	this.gIFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+        	this.tIFFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.headquartersPatreoncomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.sourceCodeGithubcomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -144,7 +151,9 @@ namespace PrintScreenToPaint
         	// 
         	this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
         	        	        	this.runAtStartupToolStripMenuItem,
-        	        	        	this.hideCloseButtonToolStripMenuItem});
+        	        	        	this.hideCloseButtonToolStripMenuItem,
+        	        	        	this.doNotopenImageToolStripMenuItem,
+        	        	        	this.imageFormatToolStripMenuItem});
         	this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
         	this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
         	this.optionsToolStripMenuItem.Text = "&Options";
@@ -152,14 +161,66 @@ namespace PrintScreenToPaint
         	// runAtStartupToolStripMenuItem
         	// 
         	this.runAtStartupToolStripMenuItem.Name = "runAtStartupToolStripMenuItem";
-        	this.runAtStartupToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+        	this.runAtStartupToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
         	this.runAtStartupToolStripMenuItem.Text = "&Run at startup";
+        	this.runAtStartupToolStripMenuItem.Click += new System.EventHandler(this.OnRunAtStartupToolStripMenuItemClick);
         	// 
         	// hideCloseButtonToolStripMenuItem
         	// 
         	this.hideCloseButtonToolStripMenuItem.Name = "hideCloseButtonToolStripMenuItem";
-        	this.hideCloseButtonToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+        	this.hideCloseButtonToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
         	this.hideCloseButtonToolStripMenuItem.Text = "&Hide close button";
+        	this.hideCloseButtonToolStripMenuItem.Click += new System.EventHandler(this.OnHideCloseButtonToolStripMenuItemClick);
+        	// 
+        	// doNotopenImageToolStripMenuItem
+        	// 
+        	this.doNotopenImageToolStripMenuItem.Name = "doNotopenImageToolStripMenuItem";
+        	this.doNotopenImageToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+        	this.doNotopenImageToolStripMenuItem.Text = "Do not &open image";
+        	this.doNotopenImageToolStripMenuItem.Click += new System.EventHandler(this.OnDoNotopenImageToolStripMenuItemClick);
+        	// 
+        	// imageFormatToolStripMenuItem
+        	// 
+        	this.imageFormatToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+        	        	        	this.pNGToolStripMenuItem,
+        	        	        	this.jPEGToolStripMenuItem,
+        	        	        	this.bMPToolStripMenuItem,
+        	        	        	this.gIFToolStripMenuItem,
+        	        	        	this.tIFFToolStripMenuItem});
+        	this.imageFormatToolStripMenuItem.Name = "imageFormatToolStripMenuItem";
+        	this.imageFormatToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+        	this.imageFormatToolStripMenuItem.Text = "&Image format";
+        	this.imageFormatToolStripMenuItem.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.OnImageFormatToolStripMenuItemDropDownItemClicked);
+        	// 
+        	// pNGToolStripMenuItem
+        	// 
+        	this.pNGToolStripMenuItem.Name = "pNGToolStripMenuItem";
+        	this.pNGToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
+        	this.pNGToolStripMenuItem.Text = "&PNG";
+        	// 
+        	// jPEGToolStripMenuItem
+        	// 
+        	this.jPEGToolStripMenuItem.Name = "jPEGToolStripMenuItem";
+        	this.jPEGToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
+        	this.jPEGToolStripMenuItem.Text = "&JPEG";
+        	// 
+        	// bMPToolStripMenuItem
+        	// 
+        	this.bMPToolStripMenuItem.Name = "bMPToolStripMenuItem";
+        	this.bMPToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
+        	this.bMPToolStripMenuItem.Text = "&BMP";
+        	// 
+        	// gIFToolStripMenuItem
+        	// 
+        	this.gIFToolStripMenuItem.Name = "gIFToolStripMenuItem";
+        	this.gIFToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
+        	this.gIFToolStripMenuItem.Text = "&GIF";
+        	// 
+        	// tIFFToolStripMenuItem
+        	// 
+        	this.tIFFToolStripMenuItem.Name = "tIFFToolStripMenuItem";
+        	this.tIFFToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
+        	this.tIFFToolStripMenuItem.Text = "&TIFF";
         	// 
         	// helpToolStripMenuItem
         	// 
@@ -357,6 +418,13 @@ namespace PrintScreenToPaint
         	this.ResumeLayout(false);
         	this.PerformLayout();
         }
+        private System.Windows.Forms.ToolStripMenuItem tIFFToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gIFToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bMPToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem jPEGToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pNGToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem imageFormatToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem doNotopenImageToolStripMenuItem;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
         private System.Windows.Forms.TextBox directoryTextBox;
         private System.Windows.Forms.Button browseButton;
