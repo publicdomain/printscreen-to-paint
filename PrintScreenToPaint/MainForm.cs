@@ -14,6 +14,7 @@ namespace PrintScreenToPaint
     using System.IO;
     using System.Runtime.InteropServices;
     using System.Windows.Forms;
+    using System.Xml.Serialization;
 
     /// <summary>
     /// Description of MainForm.
@@ -29,6 +30,16 @@ namespace PrintScreenToPaint
         /// The save image count.
         /// </summary>
         private int saveImageCount = 0;
+
+        /// <summary>
+        /// The settings file path.
+        /// </summary>
+        private string settingsFilePath = "PrintScreenToPaint_SettingsData.txt";
+
+        /// <summary>
+        /// The settings data.
+        /// </summary>
+        private SettingsData settingsData = new SettingsData();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="T:PrintScreenToPaint.MainForm"/> class.
@@ -120,6 +131,22 @@ namespace PrintScreenToPaint
 
                 // Set button text
                 this.pauseResumeButton.Text = "&Pause";
+            }
+        }
+
+        /// <summary>
+        /// Saves the settings data.
+        /// </summary>
+        private void SaveSettingsData()
+        {
+            // Use stream writer
+            using (StreamWriter streamWriter = new StreamWriter(this.settingsFilePath, false))
+            {
+                // Set xml serialzer
+                XmlSerializer xmlSerializer = new XmlSerializer(typeof(SettingsData));
+
+                // Serialize settings data
+                xmlSerializer.Serialize(streamWriter, this.settingsData);
             }
         }
 
