@@ -75,6 +75,12 @@ namespace PrintScreenToPaint
 
                 // Save screenshot to disk
                 bitmap.Save(saveImagePath, this.saveImageFormat);
+
+                // Raise saved image count
+                this.saveImageCount++;
+
+                // Reflect new image count
+                this.countToolStripStatusLabel.Text = this.saveImageCount.ToString();
             }
 
             // Check if must open saved image
