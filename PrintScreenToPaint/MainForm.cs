@@ -396,7 +396,12 @@ namespace PrintScreenToPaint
         /// <param name="e">Event arguments.</param>
         private void OnMainFormResize(object sender, EventArgs e)
         {
-            // TODO Add code
+            // Check for minimized state
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                // Send to the system tray
+                this.SendToSystemTray();
+            }
         }
 
         /// <summary>
