@@ -15,6 +15,7 @@ namespace PrintScreenToPaint
     using System.Runtime.InteropServices;
     using System.Windows.Forms;
     using System.Xml.Serialization;
+    using Microsoft.Win32;
 
     /// <summary>
     /// Description of MainForm.
@@ -201,6 +202,32 @@ namespace PrintScreenToPaint
 
             // Hide system tray icon
             this.mainNotifyIcon.Visible = false;
+        }
+
+        /// <summary>
+        /// Processes the run at startup registry action.
+        /// </summary>
+        private void ProcessRunAtStartupRegistry()
+        {
+            // Open registry key
+            using (RegistryKey registryKey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true))
+            {
+                // Check for run at startup in settings data
+                if (this.settingsData.RunAtStartup)
+                {
+                    // Add app value
+                    registryKey.SetValue(Application.ProductName, $"\"{Application.ExecutablePath}\" /autostart");
+                }
+                else
+                {
+                    // Check for app value
+                    if (registryKey.GetValue(Application.ProductName) != null)
+                    {
+                        // Erase app value
+                        registryKey.DeleteValue(Application.ProductName, false);
+                    }
+                }
+            }
         }
 
         /// <summary>
