@@ -26,6 +26,11 @@ namespace PrintScreenToPaint
         private ImageFormat saveImageFormat = ImageFormat.Png;
 
         /// <summary>
+        /// The save image count.
+        /// </summary>
+        private int saveImageCount = 0;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="T:PrintScreenToPaint.MainForm"/> class.
         /// </summary>
         public MainForm()
@@ -246,7 +251,8 @@ namespace PrintScreenToPaint
         /// <param name="e">Event arguments.</param>
         private void OnDoNotopenImageToolStripMenuItemClick(object sender, EventArgs e)
         {
-            // TODO Add code
+            // Toggle check state
+            this.doNotopenImageToolStripMenuItem.Checked = !this.doNotopenImageToolStripMenuItem.Checked;
         }
 
         /// <summary>
