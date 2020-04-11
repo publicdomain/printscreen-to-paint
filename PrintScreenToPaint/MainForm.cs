@@ -411,7 +411,8 @@ namespace PrintScreenToPaint
         /// <param name="e">Event arguments.</param>
         private void OnShowToolStripMenuItemClick(object sender, EventArgs e)
         {
-            // TODO Add code
+            // Restore window
+            this.RestoreFromSystemTray();
         }
 
         /// <summary>
