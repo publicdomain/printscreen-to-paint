@@ -87,7 +87,29 @@ namespace PrintScreenToPaint
         /// <param name="e">Event arguments.</param>
         private void OnPauseResumeButtonClick(object sender, EventArgs e)
         {
-            // TODO Add code
+            // Check if must pause
+            if (this.pauseResumeButton.Text.StartsWith("&P", StringComparison.InvariantCulture))
+            {
+                // Disable keyboard hook
+                KeyboardHook.DisableHook();
+
+                // Update monitor status
+                this.hotkeyGroupBox.Text = "Hotkey is: INACTIVE";
+
+                // Set button text
+                this.pauseResumeButton.Text = "&Resume";
+            }
+            else
+            {
+                // Enable keyboard hook
+                KeyboardHook.EnableHook();
+
+                // Update monitor status
+                this.hotkeyGroupBox.Text = "Hotkey is: ACTIVE";
+
+                // Set button text
+                this.pauseResumeButton.Text = "&Pause";
+            }
         }
 
         /// <summary>
