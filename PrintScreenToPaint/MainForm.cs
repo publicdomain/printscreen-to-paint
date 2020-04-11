@@ -375,7 +375,14 @@ namespace PrintScreenToPaint
         /// <param name="e">Event arguments.</param>
         private void OnHideCloseButtonToolStripMenuItemClick(object sender, EventArgs e)
         {
-            // TODO Add code
+            // Toggle hide close button check box
+            this.hideCloseButtonToolStripMenuItem.Checked = !this.hideCloseButtonToolStripMenuItem.Checked;
+
+            // Set form's control box visibility
+            this.ControlBox = !this.hideCloseButtonToolStripMenuItem.Checked;
+
+            // Set control box visibility on settings data
+            this.settingsData.HideCloseButton = this.hideCloseButtonToolStripMenuItem.Checked;
         }
 
         /// <summary>
@@ -413,16 +420,6 @@ namespace PrintScreenToPaint
         {
             // Restore window
             this.RestoreFromSystemTray();
-        }
-
-        /// <summary>
-        /// Handles the notify exit tool strip menu item click event.
-        /// </summary>
-        /// <param name="sender">Sender object.</param>
-        /// <param name="e">Event arguments.</param>
-        private void OnNotifyExitToolStripMenuItemClick(object sender, EventArgs e)
-        {
-            // TODO Add code
         }
     }
 }
