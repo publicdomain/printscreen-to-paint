@@ -130,8 +130,12 @@ namespace PrintScreenToPaint
         /// </summary>
         public static void EnableHook()
         {
-            // Set windows hook
-            hookID = SetWindowsHookEx(WH_KEYBOARD_LL, proc, GetModuleHandle(Process.GetCurrentProcess().MainModule.ModuleName), 0);
+            // Check for no hook
+            if (hookID == IntPtr.Zero)
+            {
+                // Set windows hook
+                hookID = SetWindowsHookEx(WH_KEYBOARD_LL, proc, GetModuleHandle(Process.GetCurrentProcess().MainModule.ModuleName), 0);
+            }
         }
 
         /// <summary>
@@ -139,8 +143,15 @@ namespace PrintScreenToPaint
         /// </summary>
         public static void DisableHook()
         {
-            // Unhook using ID
-            UnhookWindowsHookEx(hookID);
+            // Check for an active hook
+            if (hookID != IntPtr.Zero)
+            {
+                // Unhook using ID
+                UnhookWindowsHookEx(hookID);
+
+                // Zero hook id
+                hookID = IntPtr.Zero;
+            }
         }
     }
 }
