@@ -10,6 +10,7 @@ namespace PrintScreenToPaint
     using System.Collections.Generic;
     using System.Diagnostics;
     using System.Drawing;
+    using System.Drawing.Imaging;
     using System.IO;
     using System.Runtime.InteropServices;
     using System.Windows.Forms;
@@ -19,6 +20,11 @@ namespace PrintScreenToPaint
     /// </summary>
     public partial class MainForm : Form
     {
+        /// <summary>
+        /// The save image format.
+        /// </summary>
+        private ImageFormat saveImageFormat = ImageFormat.Png;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="T:PrintScreenToPaint.MainForm"/> class.
         /// </summary>
@@ -39,7 +45,39 @@ namespace PrintScreenToPaint
         /// </summary>
         private void OnTargetKeyPress()
         {
-            // TODO Add code
+            // Set save image path
+            string saveImagePath = Path.Combine(this.directoryTextBox.Text, $"{DateTime.Now.ToString("dd-MMMM-yyyy_hh-mm-sstt")}.{saveImageFormat.ToString()}");
+
+            // Save current screen to disk
+            Rectangle rectangle = Screen.GetBounds(Point.Empty);
+
+            // Use bitmap
+            using (Bitmap bitmap = new Bitmap(rectangle.Width, rectangle.Height))
+            {
+                // Use graphics
+                using (Graphics graphics = Graphics.FromImage(bitmap))
+                {
+                    // Take screenshot
+                    graphics.CopyFromScreen(Point.Empty, Point.Empty, rectangle.Size);
+                }
+
+                // Check for directory
+                if (!Directory.Exists(this.directoryTextBox.Text))
+                {
+                    // Create directory
+                    Directory.CreateDirectory(this.directoryTextBox.Text);
+                }
+
+                // Save screenshot to disk
+                bitmap.Save(saveImagePath, this.saveImageFormat);
+            }
+
+            // Check if must open saved image
+            if (!this.doNotopenImageToolStripMenuItem.Checked)
+            {
+                // Open screenshot in paint
+                Process.Start($"mspaint", $"\"{saveImagePath.Replace("/", "\\")}\"");
+            }
         }
 
         /// <summary>
