@@ -151,6 +151,23 @@ namespace PrintScreenToPaint
         }
 
         /// <summary>
+        /// Loads the settings data.
+        /// </summary>
+        /// <returns>The settings data.</returns>ing
+        private SettingsData LoadSettingsData()
+        {
+            // Use file stream
+            using (FileStream fileStream = File.OpenRead(this.settingsFilePath))
+            {
+                // Set xml serialzer
+                XmlSerializer xmlSerializer = new XmlSerializer(typeof(SettingsData));
+
+                // Return populated settings data
+                return xmlSerializer.Deserialize(fileStream) as SettingsData;
+            }
+        }
+
+        /// <summary>
         /// Handles the browse button click event.
         /// </summary>
         /// <param name="sender">Sender object.</param>

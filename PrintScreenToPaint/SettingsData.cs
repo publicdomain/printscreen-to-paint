@@ -14,7 +14,7 @@ namespace PrintScreenToPaint
     public class SettingsData
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:MultilingualWordCounter.SettingsData"/> class.
+        /// Initializes a new instance of the <see cref="T:PrintScreenToPaint.SettingsData"/> class.
         /// </summary>
         public SettingsData()
         {
