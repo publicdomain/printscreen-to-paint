@@ -193,7 +193,8 @@ namespace PrintScreenToPaint
         /// <param name="e">Event arguments.</param>
         private void OnMainFormFormClosing(object sender, FormClosingEventArgs e)
         {
-            // TODO Add code
+            // Remove hook
+            KeyboardHook.DisableHook();
         }
 
         /// <summary>
