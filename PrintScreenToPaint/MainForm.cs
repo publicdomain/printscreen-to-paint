@@ -168,6 +168,18 @@ namespace PrintScreenToPaint
         }
 
         /// <summary>
+        /// Sends the program to the system tray.
+        /// </summary>
+        private void SendToSystemTray()
+        {
+            // Hide main form
+            this.Hide();
+
+            // Show notify icon 
+            this.mainNotifyIcon.Visible = true;
+        }
+
+        /// <summary>
         /// Handles the browse button click event.
         /// </summary>
         /// <param name="sender">Sender object.</param>
