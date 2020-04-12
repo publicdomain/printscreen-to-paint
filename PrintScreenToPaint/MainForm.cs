@@ -95,23 +95,11 @@ namespace PrintScreenToPaint
                 this.SaveSettingsData();
 
                 // Inform user
-                MessageBox.Show($"Created \"{this.settingsFilePath}\" file.{Environment.NewLine}Program icon will appear on system tray.", "First run", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"Created \"{this.settingsFilePath}\" file.{Environment.NewLine}Program icon will appear on system tray.{ Environment.NewLine}{Environment.NewLine}Press print-screen key to use the program!", "First run", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-            // Populate settings data
-            this.settingsData = this.LoadSettingsData();
-
-            // Set registry entry based on settings data
-            this.ProcessRunAtStartupRegistry();
-
-            // Set run at startup tool strip menu item check state
-            this.runAtStartupToolStripMenuItem.Checked = this.settingsData.RunAtStartup;
-
-            // Set hide close button menu item check state
-            this.hideCloseButtonToolStripMenuItem.Checked = this.settingsData.HideCloseButton;
-
-            // Set form's control box visibility
-            this.ControlBox = !this.settingsData.HideCloseButton;
+            // Process settings
+            this.ProcessSettings()
         }
 
         /// <summary>
@@ -223,6 +211,27 @@ namespace PrintScreenToPaint
                 // Return populated settings data
                 return xmlSerializer.Deserialize(fileStream) as SettingsData;
             }
+        }
+
+        /// <summary>
+        /// Processes the settings.
+        /// </summary>
+        private void ProcessSettings()
+        {
+            // Populate settings data
+            this.settingsData = this.LoadSettingsData();
+
+            // Set registry entry based on settings data
+            this.ProcessRunAtStartupRegistry();
+
+            // Set run at startup tool strip menu item check state
+            this.runAtStartupToolStripMenuItem.Checked = this.settingsData.RunAtStartup;
+
+            // Set hide close button menu item check state
+            this.hideCloseButtonToolStripMenuItem.Checked = this.settingsData.HideCloseButton;
+
+            // Set form's control box visibility
+            this.ControlBox = !this.settingsData.HideCloseButton;
         }
 
         /// <summary>

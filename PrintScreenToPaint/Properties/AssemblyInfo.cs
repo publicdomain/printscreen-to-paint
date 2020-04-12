@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("PublicDomain.com")]
 [assembly: AssemblyProduct("PrintScreenToPaint")]
-[assembly: AssemblyCopyright("Copyright 2020")]
+[assembly: AssemblyCopyright("Copyright 2020 - Victor L. Senior")]
 [assembly: AssemblyTrademark("publicdomain")]
 [assembly: AssemblyCulture("")]
 
