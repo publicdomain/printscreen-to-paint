@@ -486,7 +486,12 @@ namespace PrintScreenToPaint
         /// <param name="e">Mouse event arguments.</param>
         private void OnMainNotifyIconMouseClick(object sender, MouseEventArgs e)
         {
-            // TODO Add code
+            // Check for left click
+            if (e.Button == MouseButtons.Left)
+            {
+                // Restore window 
+                this.RestoreFromSystemTray();
+            }
         }
     }
 }
