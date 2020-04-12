@@ -402,6 +402,18 @@ namespace PrintScreenToPaint
         {
             // Remove hook
             KeyboardHook.DisableHook();
+
+            // Set run at startup
+            this.settingsData.RunAtStartup = this.runAtStartupToolStripMenuItem.Checked;
+
+            // Process registry action
+            this.ProcessRunAtStartupRegistry();
+
+            // Set hide close button
+            this.settingsData.HideCloseButton = this.hideCloseButtonToolStripMenuItem.Checked;
+
+            // Save settings to disk
+            this.SaveSettingsData();
         }
 
         /// <summary>
