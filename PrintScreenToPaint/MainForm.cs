@@ -99,7 +99,7 @@ namespace PrintScreenToPaint
             }
 
             // Process settings
-            this.ProcessSettings()
+            this.ProcessSettings();
         }
 
         /// <summary>
@@ -421,7 +421,8 @@ namespace PrintScreenToPaint
         /// <param name="e">Event arguments.</param>
         private void OnRunAtStartupToolStripMenuItemClick(object sender, EventArgs e)
         {
-            // TODO Add code
+            // Toggle run at startup check state
+            this.runAtStartupToolStripMenuItem.Checked = !this.runAtStartupToolStripMenuItem.Checked;
         }
 
         /// <summary>
