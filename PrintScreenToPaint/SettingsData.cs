@@ -2,6 +2,7 @@
 //     CC0 1.0 Universal (CC0 1.0) - Public Domain Dedication
 //     https://creativecommons.org/publicdomain/zero/1.0/legalcode
 // </copyright>
+using System.Drawing.Imaging;
 
 namespace PrintScreenToPaint
 {
@@ -32,5 +33,11 @@ namespace PrintScreenToPaint
         /// </summary>
         /// <value><c>true</c> if hide close button; otherwise, <c>false</c>.</value>
         public bool HideCloseButton { get; set; } = false;
+
+        /// <summary>
+        /// Gets or sets the save image format.
+        /// </summary>
+        /// <value>The save image format.</value>
+        public ImageFormat SaveImageFormat { get; set; } = ImageFormat.Png;
     }
 }
