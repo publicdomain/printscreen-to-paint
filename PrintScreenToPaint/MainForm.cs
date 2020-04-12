@@ -12,6 +12,7 @@ namespace PrintScreenToPaint
     using System.Drawing;
     using System.Drawing.Imaging;
     using System.IO;
+    using System.Reflection;
     using System.Runtime.InteropServices;
     using System.Windows.Forms;
     using System.Xml.Serialization;
@@ -43,6 +44,26 @@ namespace PrintScreenToPaint
         private SettingsData settingsData = new SettingsData();
 
         /// <summary>
+        /// The assembly version.
+        /// </summary>
+        private Version assemblyVersion = Assembly.GetExecutingAssembly().GetName().Version;
+
+        /// <summary>
+        /// The semantic version.
+        /// </summary>
+        private string semanticVersion = string.Empty;
+
+        /// <summary>
+        /// The associated icon.
+        /// </summary>
+        private Icon associatedIcon = null;
+
+        /// <summary>
+        /// The friendly name of the program.
+        /// </summary>
+        private string friendlyName = "Print-screen to Paint";
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="T:PrintScreenToPaint.MainForm"/> class.
         /// </summary>
         public MainForm()
@@ -50,11 +71,47 @@ namespace PrintScreenToPaint
             // The InitializeComponent() call is required for Windows Forms designer support.
             this.InitializeComponent();
 
+            // Set notify icon
+            this.mainNotifyIcon.Icon = this.Icon;
+
+            // Set semantic version
+            this.semanticVersion = this.assemblyVersion.Major + "." + this.assemblyVersion.Minor + "." + this.assemblyVersion.Build;
+
+            // TODO Set current directory [can be made conditional to: args[1] == "/autostart"]
+            Directory.SetCurrentDirectory(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location));
+
             // Set the target key press event handler
             KeyboardHook.TargetKeyPress += this.OnTargetKeyPress;
 
             // Enable the keyboard hook
             KeyboardHook.EnableHook();
+
+            /* Process settings */
+
+            // Check for settings data file
+            if (!File.Exists(this.settingsFilePath))
+            {
+                // Not present, assume first run and create it
+                this.SaveSettingsData();
+
+                // Inform user
+                MessageBox.Show($"Created \"{this.settingsFilePath}\" file.{Environment.NewLine}Program icon will appear on system tray.", "First run", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            // Populate settings data
+            this.settingsData = this.LoadSettingsData();
+
+            // Set registry entry based on settings data
+            this.ProcessRunAtStartupRegistry();
+
+            // Set run at startup tool strip menu item check state
+            this.runAtStartupToolStripMenuItem.Checked = this.settingsData.RunAtStartup;
+
+            // Set hide close button menu item check state
+            this.hideCloseButtonToolStripMenuItem.Checked = this.settingsData.HideCloseButton;
+
+            // Set form's control box visibility
+            this.ControlBox = !this.settingsData.HideCloseButton;
         }
 
         /// <summary>
@@ -420,6 +477,16 @@ namespace PrintScreenToPaint
         {
             // Restore window
             this.RestoreFromSystemTray();
+        }
+
+        /// <summary>
+        /// Handles the main notify icon mouse click event.
+        /// </summary>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Mouse event arguments.</param>
+        private void OnMainNotifyIconMouseClick(object sender, MouseEventArgs e)
+        {
+            // TODO Add code
         }
     }
 }
