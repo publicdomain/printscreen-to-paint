@@ -100,7 +100,7 @@ namespace PrintScreenToPaint
             foreach (ToolStripMenuItem item in this.imageFormatToolStripMenuItem.DropDownItems)
             {
                 // Check based on it being in current settings
-                item.Checked = (item.Text.Substring(1).ToLowerInvariant() == this.settingsData.SaveImageFormat);
+                item.Checked = item.Text.Substring(1).ToLowerInvariant() == this.settingsData.SaveImageFormat;
             }
         }
 
@@ -278,7 +278,7 @@ namespace PrintScreenToPaint
             foreach (ToolStripMenuItem item in this.imageFormatToolStripMenuItem.DropDownItems)
             {
                 // Check based on it being the current format in settings
-                item.Checked = (item.Text.Substring(1).ToLowerInvariant() == this.settingsData.SaveImageFormat);
+                item.Checked = item.Text.Substring(1).ToLowerInvariant() == this.settingsData.SaveImageFormat;
             }
         }
 
@@ -416,7 +416,31 @@ namespace PrintScreenToPaint
         /// <param name="e">Event arguments.</param>
         private void OnNewToolStripMenuItemClick(object sender, EventArgs e)
         {
-            // TODO Add code
+            // Ask user for a fresh start
+            if (MessageBox.Show("Would you like to recreate a fresh start?", "Reset", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            {
+                // Reset settings
+                this.settingsData = new SettingsData();
+
+                // Save settings to disk
+                this.SaveSettingsData();
+
+                // Process settings
+                this.ProcessSettings();
+
+                // Check if must hit pause/resume button
+                if (!this.pauseResumeButton.Text.StartsWith("&P", StringComparison.InvariantCulture))
+                {
+                    // Simulate click
+                    this.pauseResumeButton.PerformClick();
+                }
+
+                // Reset image count
+                this.saveImageCount = 0;
+
+                // Reflect count in status
+                this.countToolStripStatusLabel.Text = "0";
+            }
         }
 
         /// <summary>
@@ -478,7 +502,7 @@ namespace PrintScreenToPaint
             foreach (ToolStripMenuItem item in this.imageFormatToolStripMenuItem.DropDownItems)
             {
                 // Check based on it being the clicked item
-                item.Checked = (item == e.ClickedItem);
+                item.Checked = item == e.ClickedItem;
             }
 
             // Update settings data
