@@ -274,6 +274,9 @@ namespace PrintScreenToPaint
             // Set do not open image menu item check state
             this.doNotopenImageToolStripMenuItem.Checked = this.settingsData.DoNotOpenImage;
 
+            // Set save igame directory
+            this.directoryTextBox.Text = this.settingsData.SaveImageDirectory;
+
             // Check save image format
             foreach (ToolStripMenuItem item in this.imageFormatToolStripMenuItem.DropDownItems)
             {
@@ -486,6 +489,9 @@ namespace PrintScreenToPaint
 
             // Set do not open image 
             this.settingsData.DoNotOpenImage = this.doNotopenImageToolStripMenuItem.Checked;
+
+            // Set save image directory
+            this.settingsData.SaveImageDirectory = this.directoryTextBox.Text;
 
             // Save settings to disk
             this.SaveSettingsData();

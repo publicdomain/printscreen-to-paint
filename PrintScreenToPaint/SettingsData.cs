@@ -45,5 +45,11 @@ namespace PrintScreenToPaint
         /// </summary>
         /// <value>The save image format.</value>
         public string SaveImageFormat { get; set; } = "png";
+
+        /// <summary>
+        /// Gets or sets the save image directory.
+        /// </summary>
+        /// <value>The save image directory.</value>
+        public string SaveImageDirectory { get; set; } = "C:\\temp\\screenprints\\";
     }
 }
