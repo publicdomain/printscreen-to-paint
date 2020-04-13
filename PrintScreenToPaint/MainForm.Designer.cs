@@ -52,8 +52,10 @@ namespace PrintScreenToPaint
         	this.doNotopenImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.imageFormatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.pNGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+        	this.jPGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.bMPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.gIFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+        	this.tIFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.headquartersPatreoncomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.sourceCodeGithubcomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -74,8 +76,6 @@ namespace PrintScreenToPaint
         	this.hotkeyGroupBox = new System.Windows.Forms.GroupBox();
         	this.pauseResumeButton = new System.Windows.Forms.Button();
         	this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-        	this.jPGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        	this.tIFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.notifyContextMenuStrip.SuspendLayout();
         	this.mainMenuStrip.SuspendLayout();
         	this.mainStatusStrip.SuspendLayout();
@@ -197,11 +197,15 @@ namespace PrintScreenToPaint
         	// 
         	// pNGToolStripMenuItem
         	// 
-        	this.pNGToolStripMenuItem.Checked = true;
-        	this.pNGToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
         	this.pNGToolStripMenuItem.Name = "pNGToolStripMenuItem";
         	this.pNGToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
         	this.pNGToolStripMenuItem.Text = "&PNG";
+        	// 
+        	// jPGToolStripMenuItem
+        	// 
+        	this.jPGToolStripMenuItem.Name = "jPGToolStripMenuItem";
+        	this.jPGToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+        	this.jPGToolStripMenuItem.Text = "&JPG";
         	// 
         	// bMPToolStripMenuItem
         	// 
@@ -214,6 +218,12 @@ namespace PrintScreenToPaint
         	this.gIFToolStripMenuItem.Name = "gIFToolStripMenuItem";
         	this.gIFToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
         	this.gIFToolStripMenuItem.Text = "&GIF";
+        	// 
+        	// tIFToolStripMenuItem
+        	// 
+        	this.tIFToolStripMenuItem.Name = "tIFToolStripMenuItem";
+        	this.tIFToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+        	this.tIFToolStripMenuItem.Text = "&TIF";
         	// 
         	// helpToolStripMenuItem
         	// 
@@ -392,18 +402,6 @@ namespace PrintScreenToPaint
         	this.pauseResumeButton.Text = "&Pause";
         	this.pauseResumeButton.UseVisualStyleBackColor = true;
         	this.pauseResumeButton.Click += new System.EventHandler(this.OnPauseResumeButtonClick);
-        	// 
-        	// jPGToolStripMenuItem
-        	// 
-        	this.jPGToolStripMenuItem.Name = "jPGToolStripMenuItem";
-        	this.jPGToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-        	this.jPGToolStripMenuItem.Text = "&JPG";
-        	// 
-        	// tIFToolStripMenuItem
-        	// 
-        	this.tIFToolStripMenuItem.Name = "tIFToolStripMenuItem";
-        	this.tIFToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-        	this.tIFToolStripMenuItem.Text = "&TIF";
         	// 
         	// MainForm
         	// 

@@ -24,11 +24,6 @@ namespace PrintScreenToPaint
     public partial class MainForm : Form
     {
         /// <summary>
-        /// The save image format.
-        /// </summary>
-        private ImageFormat saveImageFormat = ImageFormat.Png;
-
-        /// <summary>
         /// The save image count.
         /// </summary>
         private int saveImageCount = 0;
@@ -100,6 +95,13 @@ namespace PrintScreenToPaint
 
             // Process settings
             this.ProcessSettings();
+
+            // Iterate image format menu items
+            foreach (ToolStripMenuItem item in this.imageFormatToolStripMenuItem.DropDownItems)
+            {
+                // Check based on it being in current settings
+                item.Checked = (item.Text.Substring(1).ToLowerInvariant() == this.settingsData.SaveImageFormat);
+            }
         }
 
         /// <summary>
@@ -108,7 +110,7 @@ namespace PrintScreenToPaint
         private void OnTargetKeyPress()
         {
             // Set save image path
-            string saveImagePath = Path.Combine(this.directoryTextBox.Text, $"{DateTime.Now.ToString("dd-MMMM-yyyy_hh-mm-sstt")}.{saveImageFormat.ToString()}");
+            string saveImagePath = Path.Combine(this.directoryTextBox.Text, $"{DateTime.Now.ToString("dd-MMMM-yyyy_hh-mm-sstt")}.{this.settingsData.SaveImageFormat}");
 
             // Save current screen to disk
             Rectangle rectangle = Screen.GetBounds(Point.Empty);
@@ -131,7 +133,7 @@ namespace PrintScreenToPaint
                 }
 
                 // Save screenshot to disk
-                bitmap.Save(saveImagePath, this.saveImageFormat);
+                bitmap.Save(saveImagePath, this.GetImageFormat(this.settingsData.SaveImageFormat));
 
                 // Raise saved image count
                 this.saveImageCount++;
@@ -145,6 +147,42 @@ namespace PrintScreenToPaint
             {
                 // Open screenshot in paint
                 Process.Start($"mspaint", $"\"{saveImagePath.Replace("/", "\\")}\"");
+            }
+        }
+
+        /// <summary>
+        /// Gets the image format.
+        /// </summary>
+        /// <returns>The image format.</returns>
+        /// <param name="passedSaveImageFormat">The passed save image format.</param>
+        private ImageFormat GetImageFormat(string passedSaveImageFormat)
+        {
+            // Swith passed save image format string
+            switch (passedSaveImageFormat.ToLower())
+            {
+                // PNG
+                case "png":
+                    return ImageFormat.Png;
+
+                // JPEG
+                case "jpg":
+                    return ImageFormat.Jpeg;
+
+                // BMP
+                case "bmp":
+                    return ImageFormat.Bmp;
+
+                // GIF
+                case "gif":
+                    return ImageFormat.Gif;
+
+                // TIFF
+                case "tif":
+                    return ImageFormat.Tiff;
+
+                // TODO Can be extended to support other formats
+                default:
+                    throw new NotImplementedException();
             }
         }
 
@@ -431,7 +469,7 @@ namespace PrintScreenToPaint
             }
 
             // Update settings data
-            this.settingsData.SaveImageFormat = e.ClickedItem.Text.Replace("&", string.Empty).ToLowerInvariant();
+            this.settingsData.SaveImageFormat = e.ClickedItem.Text.Substring(1).ToLowerInvariant();
         }
 
         /// <summary>
