@@ -271,6 +271,9 @@ namespace PrintScreenToPaint
             // Set form's control box visibility
             this.ControlBox = !this.settingsData.HideCloseButton;
 
+            // Set do not open image menu item check state
+            this.doNotopenImageToolStripMenuItem.Checked = this.settingsData.DoNotOpenImage;
+
             // Check save image format
             foreach (ToolStripMenuItem item in this.imageFormatToolStripMenuItem.DropDownItems)
             {
@@ -456,6 +459,9 @@ namespace PrintScreenToPaint
 
             // Set hide close button
             this.settingsData.HideCloseButton = this.hideCloseButtonToolStripMenuItem.Checked;
+
+            // Set do not open image 
+            this.settingsData.DoNotOpenImage = this.doNotopenImageToolStripMenuItem.Checked;
 
             // Save settings to disk
             this.SaveSettingsData();
