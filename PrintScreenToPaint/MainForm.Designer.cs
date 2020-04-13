@@ -72,6 +72,7 @@ namespace PrintScreenToPaint
         	this.directoryGroupBox = new System.Windows.Forms.GroupBox();
         	this.hotkeyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
         	this.browseButton = new System.Windows.Forms.Button();
+        	this.openButton = new System.Windows.Forms.Button();
         	this.directoryTextBox = new System.Windows.Forms.TextBox();
         	this.hotkeyGroupBox = new System.Windows.Forms.GroupBox();
         	this.pauseResumeButton = new System.Windows.Forms.Button();
@@ -116,7 +117,7 @@ namespace PrintScreenToPaint
         	        	        	this.minimizeToolStripMenuItem});
         	this.mainMenuStrip.Location = new System.Drawing.Point(0, 0);
         	this.mainMenuStrip.Name = "mainMenuStrip";
-        	this.mainMenuStrip.Size = new System.Drawing.Size(284, 24);
+        	this.mainMenuStrip.Size = new System.Drawing.Size(296, 24);
         	this.mainMenuStrip.TabIndex = 8;
         	// 
         	// fileToolStripMenuItem
@@ -294,7 +295,7 @@ namespace PrintScreenToPaint
         	        	        	this.countToolStripStatusLabel});
         	this.mainStatusStrip.Location = new System.Drawing.Point(0, 158);
         	this.mainStatusStrip.Name = "mainStatusStrip";
-        	this.mainStatusStrip.Size = new System.Drawing.Size(284, 22);
+        	this.mainStatusStrip.Size = new System.Drawing.Size(296, 22);
         	this.mainStatusStrip.SizingGrip = false;
         	this.mainStatusStrip.TabIndex = 7;
         	// 
@@ -329,7 +330,7 @@ namespace PrintScreenToPaint
         	this.mainTableLayoutPanel.RowCount = 2;
         	this.mainTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
         	this.mainTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
-        	this.mainTableLayoutPanel.Size = new System.Drawing.Size(284, 134);
+        	this.mainTableLayoutPanel.Size = new System.Drawing.Size(296, 134);
         	this.mainTableLayoutPanel.TabIndex = 9;
         	// 
         	// directoryGroupBox
@@ -338,37 +339,51 @@ namespace PrintScreenToPaint
         	this.directoryGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
         	this.directoryGroupBox.Location = new System.Drawing.Point(3, 83);
         	this.directoryGroupBox.Name = "directoryGroupBox";
-        	this.directoryGroupBox.Size = new System.Drawing.Size(278, 48);
+        	this.directoryGroupBox.Size = new System.Drawing.Size(290, 48);
         	this.directoryGroupBox.TabIndex = 7;
         	this.directoryGroupBox.TabStop = false;
         	this.directoryGroupBox.Text = "Save directory:";
         	// 
         	// hotkeyTableLayoutPanel
         	// 
-        	this.hotkeyTableLayoutPanel.ColumnCount = 2;
-        	this.hotkeyTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.95588F));
-        	this.hotkeyTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.04412F));
-        	this.hotkeyTableLayoutPanel.Controls.Add(this.browseButton, 1, 0);
+        	this.hotkeyTableLayoutPanel.ColumnCount = 3;
+        	this.hotkeyTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55F));
+        	this.hotkeyTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+        	this.hotkeyTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+        	this.hotkeyTableLayoutPanel.Controls.Add(this.browseButton, 0, 0);
+        	this.hotkeyTableLayoutPanel.Controls.Add(this.openButton, 1, 0);
         	this.hotkeyTableLayoutPanel.Controls.Add(this.directoryTextBox, 0, 0);
         	this.hotkeyTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
         	this.hotkeyTableLayoutPanel.Location = new System.Drawing.Point(3, 16);
         	this.hotkeyTableLayoutPanel.Name = "hotkeyTableLayoutPanel";
         	this.hotkeyTableLayoutPanel.RowCount = 1;
-        	this.hotkeyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-        	this.hotkeyTableLayoutPanel.Size = new System.Drawing.Size(272, 29);
+        	this.hotkeyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+        	this.hotkeyTableLayoutPanel.Size = new System.Drawing.Size(284, 29);
         	this.hotkeyTableLayoutPanel.TabIndex = 0;
         	// 
         	// browseButton
         	// 
         	this.browseButton.Dock = System.Windows.Forms.DockStyle.Fill;
         	this.browseButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-        	this.browseButton.Location = new System.Drawing.Point(195, 3);
+        	this.browseButton.Location = new System.Drawing.Point(159, 3);
         	this.browseButton.Name = "browseButton";
-        	this.browseButton.Size = new System.Drawing.Size(74, 23);
-        	this.browseButton.TabIndex = 2;
-        	this.browseButton.Text = "Browse";
+        	this.browseButton.Size = new System.Drawing.Size(65, 23);
+        	this.browseButton.TabIndex = 3;
+        	this.browseButton.Text = "&Browse";
         	this.browseButton.UseVisualStyleBackColor = true;
         	this.browseButton.Click += new System.EventHandler(this.OnBrowseButtonClick);
+        	// 
+        	// openButton
+        	// 
+        	this.openButton.Dock = System.Windows.Forms.DockStyle.Fill;
+        	this.openButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+        	this.openButton.Location = new System.Drawing.Point(230, 3);
+        	this.openButton.Name = "openButton";
+        	this.openButton.Size = new System.Drawing.Size(51, 23);
+        	this.openButton.TabIndex = 2;
+        	this.openButton.Text = "&Open";
+        	this.openButton.UseVisualStyleBackColor = true;
+        	this.openButton.Click += new System.EventHandler(this.OnOpenButtonClick);
         	// 
         	// directoryTextBox
         	// 
@@ -376,9 +391,9 @@ namespace PrintScreenToPaint
         	this.directoryTextBox.Location = new System.Drawing.Point(3, 3);
         	this.directoryTextBox.Multiline = true;
         	this.directoryTextBox.Name = "directoryTextBox";
-        	this.directoryTextBox.Size = new System.Drawing.Size(186, 23);
+        	this.directoryTextBox.Size = new System.Drawing.Size(150, 23);
         	this.directoryTextBox.TabIndex = 1;
-        	this.directoryTextBox.Text = "C:/temp/screenprints/";
+        	this.directoryTextBox.Text = "C:\\temp\\screenprints\\";
         	// 
         	// hotkeyGroupBox
         	// 
@@ -386,7 +401,7 @@ namespace PrintScreenToPaint
         	this.hotkeyGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
         	this.hotkeyGroupBox.Location = new System.Drawing.Point(3, 3);
         	this.hotkeyGroupBox.Name = "hotkeyGroupBox";
-        	this.hotkeyGroupBox.Size = new System.Drawing.Size(278, 74);
+        	this.hotkeyGroupBox.Size = new System.Drawing.Size(290, 74);
         	this.hotkeyGroupBox.TabIndex = 6;
         	this.hotkeyGroupBox.TabStop = false;
         	this.hotkeyGroupBox.Text = "Hotkey is: ACTIVE";
@@ -397,7 +412,7 @@ namespace PrintScreenToPaint
         	this.pauseResumeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         	this.pauseResumeButton.Location = new System.Drawing.Point(3, 16);
         	this.pauseResumeButton.Name = "pauseResumeButton";
-        	this.pauseResumeButton.Size = new System.Drawing.Size(272, 55);
+        	this.pauseResumeButton.Size = new System.Drawing.Size(284, 55);
         	this.pauseResumeButton.TabIndex = 0;
         	this.pauseResumeButton.Text = "&Pause";
         	this.pauseResumeButton.UseVisualStyleBackColor = true;
@@ -408,7 +423,7 @@ namespace PrintScreenToPaint
         	this.AcceptButton = this.pauseResumeButton;
         	this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
         	this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        	this.ClientSize = new System.Drawing.Size(284, 180);
+        	this.ClientSize = new System.Drawing.Size(296, 180);
         	this.Controls.Add(this.mainTableLayoutPanel);
         	this.Controls.Add(this.mainMenuStrip);
         	this.Controls.Add(this.mainStatusStrip);
@@ -434,6 +449,7 @@ namespace PrintScreenToPaint
         	this.ResumeLayout(false);
         	this.PerformLayout();
         }
+        private System.Windows.Forms.Button browseButton;
         private System.Windows.Forms.ToolStripMenuItem tIFToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem jPGToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel countToolStripStatusLabel;
@@ -444,7 +460,7 @@ namespace PrintScreenToPaint
         private System.Windows.Forms.ToolStripMenuItem doNotopenImageToolStripMenuItem;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
         private System.Windows.Forms.TextBox directoryTextBox;
-        private System.Windows.Forms.Button browseButton;
+        private System.Windows.Forms.Button openButton;
         private System.Windows.Forms.TableLayoutPanel hotkeyTableLayoutPanel;
         private System.Windows.Forms.Button pauseResumeButton;
         private System.Windows.Forms.GroupBox hotkeyGroupBox;

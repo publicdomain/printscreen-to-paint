@@ -599,5 +599,25 @@ namespace PrintScreenToPaint
                 this.RestoreFromSystemTray();
             }
         }
+
+        /// <summary>
+        /// Handle the open button click event.
+        /// </summary>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Mouse event arguments.</param>
+        private void OnOpenButtonClick(object sender, EventArgs e)
+        {
+            // Check for an actual directory
+            if (Directory.Exists(this.directoryTextBox.Text))
+            {
+                // Open save directory in explorer
+                Process.Start("explorer.exe", this.directoryTextBox.Text);
+            }
+            else
+            {
+                // Advise user
+                MessageBox.Show("Please use an existing directory!", "Open", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
     }
 }
