@@ -52,10 +52,8 @@ namespace PrintScreenToPaint
         	this.doNotopenImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.imageFormatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.pNGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        	this.jPEGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.bMPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.gIFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        	this.tIFFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.headquartersPatreoncomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.sourceCodeGithubcomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -76,6 +74,8 @@ namespace PrintScreenToPaint
         	this.hotkeyGroupBox = new System.Windows.Forms.GroupBox();
         	this.pauseResumeButton = new System.Windows.Forms.Button();
         	this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+        	this.jPGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+        	this.tIFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.notifyContextMenuStrip.SuspendLayout();
         	this.mainMenuStrip.SuspendLayout();
         	this.mainStatusStrip.SuspendLayout();
@@ -186,10 +186,10 @@ namespace PrintScreenToPaint
         	// 
         	this.imageFormatToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
         	        	        	this.pNGToolStripMenuItem,
-        	        	        	this.jPEGToolStripMenuItem,
+        	        	        	this.jPGToolStripMenuItem,
         	        	        	this.bMPToolStripMenuItem,
         	        	        	this.gIFToolStripMenuItem,
-        	        	        	this.tIFFToolStripMenuItem});
+        	        	        	this.tIFToolStripMenuItem});
         	this.imageFormatToolStripMenuItem.Name = "imageFormatToolStripMenuItem";
         	this.imageFormatToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
         	this.imageFormatToolStripMenuItem.Text = "&Image format";
@@ -200,32 +200,20 @@ namespace PrintScreenToPaint
         	this.pNGToolStripMenuItem.Checked = true;
         	this.pNGToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
         	this.pNGToolStripMenuItem.Name = "pNGToolStripMenuItem";
-        	this.pNGToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
+        	this.pNGToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
         	this.pNGToolStripMenuItem.Text = "&PNG";
-        	// 
-        	// jPEGToolStripMenuItem
-        	// 
-        	this.jPEGToolStripMenuItem.Name = "jPEGToolStripMenuItem";
-        	this.jPEGToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
-        	this.jPEGToolStripMenuItem.Text = "&JPEG";
         	// 
         	// bMPToolStripMenuItem
         	// 
         	this.bMPToolStripMenuItem.Name = "bMPToolStripMenuItem";
-        	this.bMPToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
+        	this.bMPToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
         	this.bMPToolStripMenuItem.Text = "&BMP";
         	// 
         	// gIFToolStripMenuItem
         	// 
         	this.gIFToolStripMenuItem.Name = "gIFToolStripMenuItem";
-        	this.gIFToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
+        	this.gIFToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
         	this.gIFToolStripMenuItem.Text = "&GIF";
-        	// 
-        	// tIFFToolStripMenuItem
-        	// 
-        	this.tIFFToolStripMenuItem.Name = "tIFFToolStripMenuItem";
-        	this.tIFFToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
-        	this.tIFFToolStripMenuItem.Text = "&TIFF";
         	// 
         	// helpToolStripMenuItem
         	// 
@@ -405,6 +393,18 @@ namespace PrintScreenToPaint
         	this.pauseResumeButton.UseVisualStyleBackColor = true;
         	this.pauseResumeButton.Click += new System.EventHandler(this.OnPauseResumeButtonClick);
         	// 
+        	// jPGToolStripMenuItem
+        	// 
+        	this.jPGToolStripMenuItem.Name = "jPGToolStripMenuItem";
+        	this.jPGToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+        	this.jPGToolStripMenuItem.Text = "&JPG";
+        	// 
+        	// tIFToolStripMenuItem
+        	// 
+        	this.tIFToolStripMenuItem.Name = "tIFToolStripMenuItem";
+        	this.tIFToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+        	this.tIFToolStripMenuItem.Text = "&TIF";
+        	// 
         	// MainForm
         	// 
         	this.AcceptButton = this.pauseResumeButton;
@@ -434,11 +434,11 @@ namespace PrintScreenToPaint
         	this.ResumeLayout(false);
         	this.PerformLayout();
         }
+        private System.Windows.Forms.ToolStripMenuItem tIFToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem jPGToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel countToolStripStatusLabel;
-        private System.Windows.Forms.ToolStripMenuItem tIFFToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gIFToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bMPToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem jPEGToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pNGToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem imageFormatToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem doNotopenImageToolStripMenuItem;

@@ -423,7 +423,15 @@ namespace PrintScreenToPaint
         /// <param name="e">Event arguments.</param>
         private void OnImageFormatToolStripMenuItemDropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            // TODO Add code
+            // Iterate items
+            foreach (ToolStripMenuItem item in this.imageFormatToolStripMenuItem.DropDownItems)
+            {
+                // Check based on it being the clicked item
+                item.Checked = (item == e.ClickedItem);
+            }
+
+            // Update settings data
+            this.settingsData.SaveImageFormat = e.ClickedItem.Text.Replace("&", string.Empty).ToLowerInvariant();
         }
 
         /// <summary>
