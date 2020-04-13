@@ -198,31 +198,31 @@ namespace PrintScreenToPaint
         	// pNGToolStripMenuItem
         	// 
         	this.pNGToolStripMenuItem.Name = "pNGToolStripMenuItem";
-        	this.pNGToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+        	this.pNGToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
         	this.pNGToolStripMenuItem.Text = "&PNG";
         	// 
         	// jPGToolStripMenuItem
         	// 
         	this.jPGToolStripMenuItem.Name = "jPGToolStripMenuItem";
-        	this.jPGToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+        	this.jPGToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
         	this.jPGToolStripMenuItem.Text = "&JPG";
         	// 
         	// bMPToolStripMenuItem
         	// 
         	this.bMPToolStripMenuItem.Name = "bMPToolStripMenuItem";
-        	this.bMPToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+        	this.bMPToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
         	this.bMPToolStripMenuItem.Text = "&BMP";
         	// 
         	// gIFToolStripMenuItem
         	// 
         	this.gIFToolStripMenuItem.Name = "gIFToolStripMenuItem";
-        	this.gIFToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+        	this.gIFToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
         	this.gIFToolStripMenuItem.Text = "&GIF";
         	// 
         	// tIFToolStripMenuItem
         	// 
         	this.tIFToolStripMenuItem.Name = "tIFToolStripMenuItem";
-        	this.tIFToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+        	this.tIFToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
         	this.tIFToolStripMenuItem.Text = "&TIF";
         	// 
         	// helpToolStripMenuItem
@@ -413,6 +413,8 @@ namespace PrintScreenToPaint
         	this.Controls.Add(this.mainMenuStrip);
         	this.Controls.Add(this.mainStatusStrip);
         	this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+        	this.MaximizeBox = false;
+        	this.MinimizeBox = false;
         	this.Name = "MainForm";
         	this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
         	this.Text = "Print-screen to Paint";

@@ -35,6 +35,12 @@ namespace PrintScreenToPaint
         public bool HideCloseButton { get; set; } = false;
 
         /// <summary>
+        /// Gets or sets a value indicating whether this <see cref="T:PrintScreenToPaint.SettingsData"/> does not open any image.
+        /// </summary>
+        /// <value><c>true</c> if do not open image is set; otherwise, <c>false</c>.</value>
+        public bool DoNotOpenImage { get; set; } = false;
+
+        /// <summary>
         /// Gets or sets the save image format.
         /// </summary>
         /// <value>The save image format.</value>

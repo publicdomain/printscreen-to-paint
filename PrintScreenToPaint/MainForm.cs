@@ -270,6 +270,13 @@ namespace PrintScreenToPaint
 
             // Set form's control box visibility
             this.ControlBox = !this.settingsData.HideCloseButton;
+
+            // Check save image format
+            foreach (ToolStripMenuItem item in this.imageFormatToolStripMenuItem.DropDownItems)
+            {
+                // Check based on it being the current format in settings
+                item.Checked = (item.Text.Substring(1).ToLowerInvariant() == this.settingsData.SaveImageFormat);
+            }
         }
 
         /// <summary>
