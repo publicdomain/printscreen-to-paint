@@ -38,6 +38,6 @@ namespace PrintScreenToPaint
         /// Gets or sets the save image format.
         /// </summary>
         /// <value>The save image format.</value>
-        public ImageFormat SaveImageFormat { get; set; } = ImageFormat.Png;
+        public string SaveImageFormat { get; set; } = "png";
     }
 }
