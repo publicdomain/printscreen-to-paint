@@ -14,9 +14,9 @@ Usage video:
 v0.1.0 features:
 - Pause/resume hotkey monitor.
 - Option to run automatically on user login.
-- Open save directory in Windows explorer.
+- Open save directory in Windows Explorer.
 - Browse for save directory or enter it manually.
-- Save image without opening in paint.
+- Save image without opening in Paint.
 - Persistent settings data.
 - Recreate fresh program start.
 
