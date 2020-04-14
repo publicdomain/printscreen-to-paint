@@ -92,6 +92,20 @@ namespace PrintScreenToPaint
                 // Inform user
                 MessageBox.Show($"Created \"{this.settingsFilePath}\" file.{Environment.NewLine}Program icon will appear on system tray.{ Environment.NewLine}{Environment.NewLine}Press print-screen key to use the program!", "First run", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            else
+            {
+                // TODO File exist, try to load it [can be made flag-based for both conditions to set a single flag and unify save settings data call]
+                try
+                {
+                    // Populate settings data
+                    this.settingsData = this.LoadSettingsData();
+                }
+                catch
+                {
+                    // There is an error when loading, recreate settings file
+                    this.SaveSettingsData();
+                }
+            }
 
             // Process settings
             this.ProcessSettings();
